@@ -1,1 +1,1 @@
-# pyscript_journey
+# PyScript and my journey to the Web
