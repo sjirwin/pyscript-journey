@@ -1,7 +1,7 @@
 # ![cc logo](cc.svg) ![attribution logo](attribution_icon.svg)
 # Attribution 4.0 International (CC BY 4.0)
 
-This is a human-readable summary of (and not a substitute for) the [license](LICENSE.md). [Disclaimer.](LICENSE-READABLE.md#disclaimer)
+This is a human-readable summary of (and not a substitute for) the [license](LICENSE.md). [Disclaimer.](HUMAN-READABLE-License-Summary.md#disclaimer)
 
 ## You are free to:
 
@@ -12,15 +12,15 @@ The licensor cannot revoke these freedoms as long as you follow the license term
 
 ## Under the following terms:
 
-**Attribution** — You must give [appropriate credit](LICENSE-READABLE.md#appropriate-credit), provide a link to the license, and [indicate if changes were made](LICENSE-READABLE.md#indication-of-changes). You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+**Attribution** — You must give [appropriate credit](HUMAN-READABLE-License-Summary.md#appropriate-credit), provide a link to the license, and [indicate if changes were made](HUMAN-READABLE-License-Summary.md#indication-of-changes). You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 
-**No additional restrictions** — You may not apply legal terms or [technological measures](LICENSE-READABLE.md#technological-measures) that legally restrict others from doing anything the license permits.
+**No additional restrictions** — You may not apply legal terms or [technological measures](HUMAN-READABLE-License-Summary.md#technological-measures) that legally restrict others from doing anything the license permits.
 
 ## Notices:
 
-You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable [exception or limitation](LICENSE-READABLE.md#exception-or-limitation).
+You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable [exception or limitation](HUMAN-READABLE-License-Summary.md#exception-or-limitation).
 
-No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as [publicity, privacy, or moral rights](LICENSE-READABLE.md#publicity-privacy-or-moral-rights) may limit how you use the material.
+No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as [publicity, privacy, or moral rights](HUMAN-READABLE-License-Summary.md#publicity-privacy-or-moral-rights) may limit how you use the material.
 
 ---
 
