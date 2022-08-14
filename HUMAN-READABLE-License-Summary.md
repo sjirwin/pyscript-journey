@@ -1,4 +1,4 @@
-# ![](cc_white.svg) ![](attribution_icon_white.svg)
+# ![cc logo](cc.svg) ![attribution logo](attribution_icon.svg)
 # Attribution 4.0 International (CC BY 4.0)
 
 This is a human-readable summary of (and not a substitute for) the [license](LICENSE.md). [Disclaimer.](LICENSE-READABLE.md#disclaimer)
