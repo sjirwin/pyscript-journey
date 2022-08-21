@@ -2,7 +2,7 @@
 
 ## Code
 
-The `main` branch contains code that was written as part of my PyScript journey. Any code in this repo authored by me is covered by the [MIT license](LICENSE.md).
+The `main` branch contains code that was written as part of my PyScript journey. Any code in this repo authored by me is covered by the [MIT license](https://choosealicense.com/licenses/mit/).
 
 The repo does contain some code obtained from various open source projects (e.g., PyScript, Flask). That code is covered by the original projects' licenses.
 
