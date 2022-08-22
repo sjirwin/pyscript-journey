@@ -227,4 +227,13 @@ pip install flask
 
 ------
 
-## placeholder
+## Mortgage Calculator
+
+- First "real" web application usually is a to-do list
+  - Not very interesting
+  - Not very useful
+  - [pyscript/examples](https://github.com/pyscript/pyscript/tree/main/examples) already has two implementations
+- Decided to implement a mortgage calculator instead
+  - There are a lot of these on the web so obviously useful
+  - Needs both input and output
+  - Can be implemented as a single-page web app
