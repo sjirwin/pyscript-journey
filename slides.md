@@ -101,10 +101,9 @@ https://sjirwin.github.io/pyscript-journey/
 
 ## PyScript Demos - REPL
 
-``` html
+```html
 <py-repl id="my-repl" auto-generate="true"> </py-repl>
-````
-
+```
 - [example repl](https://pyscript.net/examples/repl.html)
 - [example repl2](https://pyscript.net/examples/repl2.html)
 <br/>
@@ -118,4 +117,114 @@ https://sjirwin.github.io/pyscript-journey/
 
 ------
 
-## place holder
+## Initial Set Up
+
+- Create a virtual environment and install Flask
+```sh
+python3.10 -m venv .venv
+source .venv/bin/activate
+pip install flask
+```
+- Create (yet another) "Hello world" app as a quick test
+     - No PyScript (yet)
+<br/>
+<img src="images/flask_hello_world.png"
+     style="border: none; box-shadow: none; height: 200px;"
+     alt="Flask Hello World"/>
+
+------
+
+## Static Assets - PyScript & Pyodide
+
+- Up till now **PyScript** and **Pyodide** needed to be downloaded each time from their respective servers
+- Useful to have these assets local to the web server
+  - Slow internet connections
+  - Offline mode
+  - Stable versions
+
+------
+
+## PyScript
+
+- Downloaded individually from `https://pyscript.net/alpha`
+- Essential files
+  - `pyscript.js`
+  - `pyscript.min.js`
+  - `pyscript.css`
+  - `pyscript.py`
+- Optional files
+  - `pyscript.js.map`
+  - `pyscript.min.js.map`
+
+------
+
+## Pyodide
+
+- Downloaded from their [releases site](https://github.com/pyodide/pyodide/releases)
+- Uncompressed size of version 0.21.0 was 281 Mb
+
+------
+
+## Connecting the Pieces
+
+- Update `<head>` to reference the static `pyscript`
+```html
+ <link rel="stylesheet" href="/static/pyscript/pyscript.css"/>
+ <script defer src="/static/pyscript/pyscript.js"></script>
+```
+- Add `<pyconfig>` section for **Pyodide**
+```html
+    <py-config>
+        - autoclose_loader: true
+        - runtimes:
+            -
+                src: "/static/pyodide/pyodide.js"
+                name: pyodide-0.21
+                lang: python
+    </py-config>
+```
+
+------
+
+## Connecting the Pieces (cont)
+
+- Move the code to a `.py` file
+- Need a `<py-env>` to set import path
+```html
+    <py-env>
+        - paths:
+            - /static/python/hello.py
+    </py-env>
+```
+- Update `<py-script>` to get source from the `.py` file
+```html
+<py-script src="/static/python/hello.py"></py-script>
+```
+
+------
+
+## Final Result
+
+<img src="images/server_hello_world.png"
+     style="border: none; box-shadow: none; height: 400px;"
+     alt="Server Hello World"/>
+
+------
+
+## An Important "Thank You!"
+
+- **PyScript** is an alpha product
+  - Early in my explorations was concerned about isolation
+  - Started thinking about how to make **PyScript** local
+- Then encountered a mind-expanding YouTube course
+  - [_"Python Web Apps, Running Locally with pyscript"_](https://www.youtube.com/watch?v=lC2jUeDKv-s)
+  - Developed by Michael Kennedy (host of [_Talk Python To Me Podcast_](https://talkpython.fm/home))
+  - Showed how to make **PyScript** and **Pyodide** static assets
+
+---
+
+# A Real Application
+
+------
+
+## placeholder
