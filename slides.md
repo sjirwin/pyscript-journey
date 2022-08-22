@@ -24,8 +24,7 @@ https://sjirwin.github.io/pyscript-journey/
 
 ---
 
-# PyScript
-## The Journey Inspired
+# The Journey Inspired
 
 ------
 
@@ -110,6 +109,13 @@ https://sjirwin.github.io/pyscript-journey/
 <img src="images/hello_world_repl.png"
      style="border: none; box-shadow: none; height: 400px;"
      alt="Hello World in REPL"/>
+
+---
+
+## The Journey So Far
+
+- Static `html` files opened directly in browser
+- Using basic **PyScript** tags
 
 ---
 
@@ -223,13 +229,23 @@ pip install flask
 
 ---
 
+## The Journet So Far
+
+- Web server running on `localhost`
+  - serving `html` files
+  - serving `python` scripts that run in the browser
+- Using multiple **PyScript** tags
+- **PyScript** and **Pyodide** as static assets
+
+---
+
 # A Real Application
 
 ------
 
 ## Mortgage Calculator
 
-- First "real" web application usually is a to-do list
+- First "real" web application is traditionally a to-do list
   - Not very interesting
   - Not very useful
   - [pyscript/examples](https://github.com/pyscript/pyscript/tree/main/examples) already has two implementations
