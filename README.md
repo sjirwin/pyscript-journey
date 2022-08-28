@@ -49,7 +49,7 @@ flask run --port 5050 # avoid standard port
 
 - **PyScript** : as mentioned above, the **PyScript** files are included in this repo. They reside in `server/static/pyscript`
 - **Pyodide** : because of its size, **Pyodide** is not included and must be downloaded from its [releases page](https://github.com/pyodide/pyodide/releases). The code in this repo assumes version 0.21.0.
-  - Download version [0.21.0](https://github.com/pyodide/pyodide/releases/download/0.21.0/pyodide-build-0.21.0.tar.bz2) from the GitHub releases page
+  - Download version [0.21.1](https://github.com/pyodide/pyodide/releases/download/0.21.1/pyodide-build-0.21.1.tar.bz2) from the GitHub releases page
   - Unpack the `tar.bz2` file
   - Move the `pyodide` directory to `server/static`
 - Verify that everything is working

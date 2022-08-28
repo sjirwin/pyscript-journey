@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Hello World</title>
+    <link rel="icon" type="image/x-icon" href="/static/image/favicon.png">
+
+    <title>Mortgage Calculator</title>
+
     <link rel="stylesheet" href="/static/pyscript/pyscript.css"/>
     <script defer src="/static/pyscript/pyscript.js"></script>
     <py-config>
@@ -17,13 +19,14 @@
     </py-config>
     <py-env>
         - paths:
-            - /static/python/hello.py
+            - /static/python/mortgage.py
     </py-env>
 </head>
 
 <body id="the_body">
 
-<py-script src="/static/python/hello.py"></py-script>
+<py-script src="/static/python/mortgage.py">
+</py-script>
 
 <main>
 </main>
