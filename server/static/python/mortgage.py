@@ -1,10 +1,32 @@
 from pyscript import Element
 
+principal_in = Element("principal")
+rate_in = Element("rate")
+months_in = Element("months")
 payment_amount = Element("payment-amount")
 
-def calculate_payment(principal: float, months: int, interest_rate: float):
+def calculate_payment(principal: float, interest_rate: float, months: int):
     R = 1 + (interest_rate / 100 / 12)
     return principal * (R ** months) * ((1 - R) / (1 - R ** months))
 
+def is_valid(input: Element):
+    val = input.element.value
+    if val:
+        try:
+            n = float(val)
+            if n > 0:
+                return True
+        except ValueError:
+            # handle the same a falsey val
+            pass
+    return False
+
 def calculate_btn_click_handler(evt):
-    payment_amount.element.innerText = "0.00"
+    if is_valid(principal_in) and is_valid(rate_in) and is_valid(months_in):
+        P = float(principal_in.element.value)
+        r = float(rate_in.element.value)
+        m = int(months_in.element.value)
+        amount = calculate_payment(P, r, m)
+        payment_amount.element.innerText = f"{amount:,.2f}"
+    else:
+        payment_amount.element.innerText = "Invalid Inputs"
