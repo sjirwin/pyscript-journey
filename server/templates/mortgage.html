@@ -52,10 +52,10 @@
             <div id="amortization-schedule-div"></div>
         </div>
         <py-script>
-            from pyodide.ffi import create_proxy
+            import pyodide
             from mortgage import calculate_btn_click_handler
             calc_btn_element = document.getElementById('calculate-btn')
-            calc_btn_element.addEventListener('click', create_proxy(calculate_btn_click_handler))
+            calc_btn_element.addEventListener('click', pyodide.ffi.create_proxy(calculate_btn_click_handler))
         </py-script>
 </main>
 
