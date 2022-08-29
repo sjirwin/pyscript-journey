@@ -15,14 +15,17 @@ def is_valid(input: Element):
         try:
             n = float(val)
             if n > 0:
+                input.element.style = ""
                 return True
         except ValueError:
             # handle the same a falsey val
             pass
+    input.element.style = "background-color:lightpink"
     return False
 
 def calculate_btn_click_handler(evt):
-    if is_valid(principal_in) and is_valid(rate_in) and is_valid(months_in):
+    valid_state = (is_valid(principal_in), is_valid(rate_in), is_valid(months_in))
+    if all(valid_state):
         P = float(principal_in.element.value)
         r = float(rate_in.element.value)
         m = int(months_in.element.value)
