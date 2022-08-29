@@ -1,0 +1,51 @@
+.input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 3em;
+    padding-left: 1em;
+    width: 95%;
+    border-top: 2px solid lightseagreen;
+    border-bottom: 2px solid lightseagreen;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+    margin: 0.2em;
+}
+
+.input-field > input {
+    width: 30%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.input-field > label {
+    text-align: left;
+    padding-left: 1em;
+}
+
+.calculate-button-div {
+    margin: 0.2em;
+    padding-left: 10%;
+}
+
+.calculate-button-div > button {
+    color: white;
+    background-color: darkblue;
+    padding: 5px;
+}
+
+.output-box {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 3em;
+    padding-left: 1em;
+    width: 95%;
+    border-top: 2px solid lightseagreen;
+    border-bottom: 2px solid lightseagreen;
+}

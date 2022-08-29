@@ -19,22 +19,50 @@
     </py-config>
     <py-env>
         - paths:
+            - /static/pyscript/pyscript.py
             - /static/python/mortgage.py
     </py-env>
-</head>
+    <link rel="stylesheet" href="/static/css/mortgage.css"/>
+  </head>
 
-<body id="the_body">
-
-<py-script src="/static/python/mortgage.py">
-</py-script>
-
-<main>
+  <body id="the_body">
+    <main>
+        <py-title>Mortgage Calculator</py-title>
+        <div class="input-box">
+            <div class="input-field">
+                <input type="text" id="principal" name="principal">
+                <label for="principal">Loan Amount</label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="rate" name="rate">
+                <label for="rate">Interest Rate (e.g., 4.5)</label>
+            </div>
+            <div class="input-field">
+                <input type="text" id="months" name="months">
+                <label for="months">Loan Term (months)</label>
+            </div>
+            <div class="calculate-button-div">
+                <button id="calculate-btn">Calculate Payment</button>
+            </div>
+        </div>
+        <div class="output-box">
+            <div id="payment-display-div">
+                Payment: <span id="payment-amount"></span>
+            </div>
+            <div id="amortization-schedule-div"></div>
+        </div>
+        <py-script>
+            from pyodide.ffi import create_proxy
+            from mortgage import calculate_btn_click_handler
+            calc_btn_element = document.getElementById('calculate-btn')
+            calc_btn_element.addEventListener('click', create_proxy(calculate_btn_click_handler))
+        </py-script>
 </main>
 
-<footer>
-    <div class="footer-content">
-    </div>
-</footer>
+    <footer>
+        <div class="footer-content">
+        </div>
+    </footer>
 
-</body>
+  </body>
 </html>
