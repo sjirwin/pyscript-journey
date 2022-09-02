@@ -1,9 +1,7 @@
 ## PyScript and my journey to the Web
 
-<span style="font-size:smaller">PyCon UK 2022</span>
 <center>
 Scott Irwin<br/>
-<br/>
 <img src="images/BBGEngineering_black.png"
      style="border: none; box-shadow: none; height: 100px"
      alt="Bloomberg Engineering"/><br/>
@@ -31,20 +29,12 @@ https://sjirwin.github.io/pyscript-journey/
 ## PyScript
 
 - Announced at PyCon US 2022 ([video](https://www.youtube.com/watch?v=qKfkCY7cmBQ))
-- Enables using Python in client-side web apps
+- Project home page at [https://pyscript.net/](https://pyscript.net/)
+ - Enables using Python code in client-side web apps
+     - Python directly in the html
 - Built on top of
   - [Pyodide](https://pyodide.org/en/stable/)
   - [WebAssembly](https://webassembly.org/) (WASM)
-
-------
-
-## Some PyScript Features
-
-- Bi-directional communication between Python and Javascript objects and namespaces
-- Curated set of ready to use UI components, such as buttons, containers, text boxes
-- Can use many popular Python packages
-  - Including many from the scientific stack (e.g., NumPy, Pandas, Matplotlib)
-  - Check [pyodide/packages](https://github.com/pyodide/pyodide/tree/main/packages) for the full list
 
 ------
 
@@ -53,6 +43,27 @@ https://sjirwin.github.io/pyscript-journey/
 - <span style="color:orangered">**Not recommended**</span> for production use
 - PyScript is "very alpha" and under heavy development
 - Many known issues, from usability to loading times
+
+------
+
+## Some PyScript Features
+
+- Bi-directional communication between Python and Javascript objects and namespaces
+- Curated set of ready to use UI components, such as buttons, containers, text boxes
+- Because it uses Pyodide, you can use many popular Python packages
+
+------
+
+## Pyodide
+
+- Port of CPython to WebAssembly
+- Enables installing and running Python packages in the browser
+  - Uses [micropip](https://pyodide.org/en/stable/usage/api/micropip-api.html)
+- Supports pure Python packages with wheel available on PyPI
+- Many packages with C extensions have also been ported
+  - General: regex, pyyaml, lxml
+  - Scientific: numpy, pandas, scipy, matplotlib, scikit-learn
+- Check [pyodide/packages](https://github.com/pyodide/pyodide/tree/main/packages) for the full list
 
 ---
 
@@ -115,7 +126,7 @@ https://sjirwin.github.io/pyscript-journey/
 ## The Journey So Far
 
 - Static `html` files opened directly in browser
-- Using basic **PyScript** tags
+- Used basic **PyScript** tags
 
 ---
 
@@ -166,8 +177,8 @@ pip install flask
 
 ## Pyodide
 
-- Downloaded from their [releases site](https://github.com/pyodide/pyodide/releases)
-- Uncompressed size of version 0.21.0 was 281 Mb
+- Downloaded from [releases site](https://github.com/pyodide/pyodide/releases)
+- Uncompressed size of version 0.21 was 281 Mb
 
 ------
 
@@ -178,17 +189,17 @@ pip install flask
  <link rel="stylesheet" href="/static/pyscript/pyscript.css"/>
  <script defer src="/static/pyscript/pyscript.js"></script>
 ```
-- Add `<pyconfig>` section for **Pyodide**
+- Add `<py-config>` section for **Pyodide**
 ```html
     <py-config>
         - autoclose_loader: true
         - runtimes:
-            -
-                src: "/static/pyodide/pyodide.js"
-                name: pyodide-0.21
-                lang: python
+            - src: "/static/pyodide/pyodide.js"
+              name: pyodide-0.21
+              lang: python
     </py-config>
 ```
+  - **Important** `py-config` contains embedded yaml so follows yaml whitespace rules
 
 ------
 
@@ -202,6 +213,7 @@ pip install flask
             - /static/python/hello.py
     </py-env>
 ```
+  - **Important** `py-env` contains embedded yaml so follows yaml whitespace rules
 - Update `<py-script>` to get source from the `.py` file
 ```html
 <py-script src="/static/python/hello.py"></py-script>
@@ -232,9 +244,9 @@ pip install flask
 ## The Journet So Far
 
 - Web server running on `localhost`
-  - serving `html` files
-  - serving `python` scripts that run in the browser
-- Using multiple **PyScript** tags
+  - Serving `html` files
+  - Serving `python` scripts that run in the browser
+- Used multiple **PyScript** tags
 - **PyScript** and **Pyodide** as static assets
 
 ---
@@ -249,7 +261,21 @@ pip install flask
   - Not very interesting
   - Not very useful
   - [pyscript/examples](https://github.com/pyscript/pyscript/tree/main/examples) already has two implementations
-- Decided to implement a mortgage calculator instead
+- Instead decided to implement a mortgage calculator
   - There are a lot of these on the web so obviously useful
   - Needs both input and output
   - Can be implemented as a single-page web app
+
+------
+
+## placeholder
+
+---
+
+## References
+
+  - This talk: [https://sjirwin.github.io/pyscript-journey/](https://sjirwin.github.io/pyscript-journey/)
+  - PyScript: [https://pyscript.net](https://pyscript.net)
+    - Examples: [https://pyscript.net/examples/](https://pyscript.net/examples/)
+  - Pyodide: [https://pyodide.org](https://pyodide.org)
+  - _"Python Web Apps, Running Locally with pyscript"_: [https://www.youtube.com/watch?v=lC2jUeDKv-s](https://www.youtube.com/watch?v=lC2jUeDKv-s)
