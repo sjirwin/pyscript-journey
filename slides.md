@@ -38,11 +38,36 @@ https://sjirwin.github.io/pyscript-journey/
 
 ------
 
-## Words of Caution
+## PyScript Tech Stack
 
-- <span style="color:orangered">**Not recommended**</span> for production use
-- PyScript is "very alpha" and under heavy development
-- Many known issues, from usability to loading times
+<img src="images/pyscript_tech_stack.svg"
+     style="border: none; box-shadow: none; height: 500px;"
+     alt="PyScript Technical Stack"/>
+
+------
+
+## WebAssembly
+
+- Binary instruction format for a stack-based virtual machine
+- WebAssembly 1.0 shipped in "major" browsers
+  - Chrome
+  - Edge
+  - Firefox
+  - WebKit (Safari)
+
+------
+
+## Pyodide
+
+
+- Port of CPython to WebAssembly/Emscripten
+- Enables installing and running Python packages in the browser
+  - Uses [micropip](https://pyodide.org/en/stable/usage/api/micropip-api.html)
+- Supports pure Python packages with a wheel available on PyPI
+- Many packages with C extensions have also been ported
+  - General: regex, pyyaml, lxml
+  - Scientific: numpy, pandas, scipy, matplotlib, scikit-learn
+- Check [pyodide/packages](https://github.com/pyodide/pyodide/tree/main/packages) for the full list
 
 ------
 
@@ -54,16 +79,11 @@ https://sjirwin.github.io/pyscript-journey/
 
 ------
 
-## Pyodide
+## Words of Caution
 
-- Port of CPython to WebAssembly
-- Enables installing and running Python packages in the browser
-  - Uses [micropip](https://pyodide.org/en/stable/usage/api/micropip-api.html)
-- Supports pure Python packages with wheel available on PyPI
-- Many packages with C extensions have also been ported
-  - General: regex, pyyaml, lxml
-  - Scientific: numpy, pandas, scipy, matplotlib, scikit-learn
-- Check [pyodide/packages](https://github.com/pyodide/pyodide/tree/main/packages) for the full list
+- <span style="color:orangered">**Not recommended**</span> for production use
+- PyScript is "very alpha" and under heavy development
+- Many known issues, from usability to loading times
 
 ---
 
@@ -241,7 +261,7 @@ pip install flask
 
 ---
 
-## The Journet So Far
+## The Journey So Far
 
 - Web server running on `localhost`
   - Serving `html` files
