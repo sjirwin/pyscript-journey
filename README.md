@@ -53,7 +53,7 @@ flask run --port 5050 # avoid standard port
   - Unpack the `tar.bz2` file
   - Move the `pyodide` directory to `server/static`
 - Verify that everything is working
-  - Start the server  (assumes venv is still active)
+  - Start the server (assumes venv is still active)
 ```sh
 cd server
 flask run
@@ -62,3 +62,17 @@ flask run
 
 ![Server Hello World](server_hello_world.png)
 
+### Run the mortgage calculator
+
+- If venv is not already active, activate it (assumes requirements have been installed)
+```sh
+source .venv/bin/activate
+```
+- Start the server
+```sh
+cd server
+flask run
+```
+- Load the [mortgage page](http://127.0.0.1:5000/mortgage) from `localhost`
+
+![Server Mortgage Calculator](server_mortgage_calculator.png)
