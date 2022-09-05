@@ -6,9 +6,9 @@ The `gh-pages` branch of this repo contains the slides for **PyScript and my jou
 
 ## Code
 
-The `main` branch contains code that was written as part of my PyScript journey. Any code in this repo authored by me is covered by the [MIT license](https://choosealicense.com/licenses/mit/).
+The `main` branch contains code that was written as part of my PyScript journey. Any code in this repo which is authored by me is covered by the [MIT license](https://choosealicense.com/licenses/mit/).
 
-The repo does contain some code obtained from various open source projects (e.g., PyScript). That code is covered by the original projects' licenses.
+The repo does contain some code obtained from open source projects (e.g., PyScript). Any such code is covered by the original projects' licenses.
 
 **Direct Dependancies**
   - [PyScript](https://pyscript.net/)
@@ -48,7 +48,7 @@ flask run --port 5050 # avoid standard port
 ### Pyodide and PyScript as static resources
 
 - **PyScript** : as mentioned above, the **PyScript** files are included in this repo. They reside in `server/static/pyscript`
-- **Pyodide** : because of its size, **Pyodide** is not included and must be downloaded from its [releases page](https://github.com/pyodide/pyodide/releases). The code in this repo assumes version 0.21.0.
+- **Pyodide** : because of its size, **Pyodide** is not included and must be downloaded from its [releases page](https://github.com/pyodide/pyodide/releases). The code in this repo assumes version 0.21 (I used 0.21.1).
   - Download version [0.21.1](https://github.com/pyodide/pyodide/releases/download/0.21.1/pyodide-build-0.21.1.tar.bz2) from the GitHub releases page
   - Unpack the `tar.bz2` file
   - Move the `pyodide` directory to `server/static`
@@ -64,15 +64,7 @@ flask run
 
 ### Run the mortgage calculator
 
-- If venv is not already active, activate it (assumes requirements have been installed)
-```sh
-source .venv/bin/activate
-```
-- Start the server
-```sh
-cd server
-flask run
-```
-- Load the [mortgage page](http://127.0.0.1:5000/mortgage) from `localhost`
+- If you are able to load the hello page, then the mortgage calulator app should also be loadable
+  - Load the [mortgage app](http://127.0.0.1:5000/mortgage) from `localhost`
 
 ![Server Mortgage Calculator](server_mortgage_calculator.png)
