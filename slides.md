@@ -1,11 +1,11 @@
-## PyScript and my journey to the Web
+## PyScript and My Journey to the Web
 
 <center>
-Scott Irwin<br/>
+<br/>Scott Irwin<br/>
 <img src="images/BBGEngineering_black.png"
      style="border: none; box-shadow: none; height: 100px"
      alt="Bloomberg Engineering"/><br/>
-<p>&nbsp;<p>
+<p>&nbsp;
 https://sjirwin.github.io/pyscript-journey
 </center>
 
@@ -13,8 +13,8 @@ https://sjirwin.github.io/pyscript-journey
 
 ## About Me
 
-- Bloomberg
-  - Joined in 2014 as Senior engineer and manager
+- Bloomberg Engineering
+  - Joined in 2014 as Senior Engineer and Team Lead
   - Python educator
   - Python Guild Leader since 2018
     - Co-chair since 2021
@@ -31,7 +31,7 @@ https://sjirwin.github.io/pyscript-journey
 - Announced at PyCon US 2022 ([video](https://www.youtube.com/watch?v=qKfkCY7cmBQ))
 - Project home page at [https://pyscript.net/](https://pyscript.net/)
  - Enables using Python code in client-side web apps
-     - Python directly in the html
+     - Python directly in the HTML
 - Built on top of
   - [Pyodide](https://pyodide.org/en/stable/)
   - [WebAssembly](https://webassembly.org/) (WASM)
@@ -48,8 +48,10 @@ https://sjirwin.github.io/pyscript-journey
 
 ## WebAssembly
 
-- Binary instruction format for a stack-based virtual machine
-- WebAssembly 1.0 shipped in "major" browsers
+- Goal: enable high-performance applications on web pages
+- Defines portable binary-code format
+- Open standard (W3C)
+- Ships with "major" browsers
   - Chrome
   - Edge
   - Firefox
@@ -95,16 +97,24 @@ https://sjirwin.github.io/pyscript-journey
 
 - Create `hello.html`
 - Add `<head>` section that brings in `pyscript`
-``` html
+
+```html
 <head>
  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
 </head>
 ```
-- Add `<body>`section which includes Python code in a `<py-script>` section
- ``` html
+
+------
+
+## DIY
+
+- Add `<body>`section
+  - Python code directly in a `<py-script>` section
+
+ ```html
 <body>
- <py-script>print('"Hello World!" from PyScript!!!')</py-script>
+ <py-script> print('"Hello World!" from PyScript!!!') </py-script>
 </body>
  ```
 
@@ -166,11 +176,23 @@ pip install flask
 
 ## Static Assets - PyScript & Pyodide
 
-- Up till now **PyScript** and **Pyodide** needed to be downloaded each time from their respective servers
-- Useful to have these assets local to the web server
+- Up till now **PyScript** and **Pyodide** had to be downloaded each time from their respective servers
+- Would be useful to have these assets local to the web server
   - Slow internet connections
   - Offline mode
   - Stable versions
+
+------
+
+## An Important "Thank You!"
+
+- **PyScript** is an alpha product
+  - Early in my explorations was concerned about isolation
+  - Started thinking about how to make **PyScript** local
+- Then encountered a mind-expanding YouTube course
+  - [_"Python Web Apps, Running Locally with pyscript"_](https://www.youtube.com/watch?v=lC2jUeDKv-s)
+  - Developed by Michael Kennedy (host of [_Talk Python To Me Podcast_](https://talkpython.fm/home))
+  - Showed how to make **PyScript** and **Pyodide** static assets
 
 ------
 
@@ -190,18 +212,24 @@ pip install flask
 
 ## Pyodide
 
-- Downloaded from [releases site](https://github.com/pyodide/pyodide/releases)
+- Downloaded from project [GitHub releases](https://github.com/pyodide/pyodide/releases)
 - Uncompressed size of version 0.21 was 281 Mb
 
 ------
 
 ## Connecting the Pieces
 
-- Update `<head>` to reference the static `pyscript`
+- Update `<link>` and `<script>` tags to reference the static `pyscript`
+
 ```html
  <link rel="stylesheet" href="/static/pyscript/pyscript.css"/>
  <script defer src="/static/pyscript/pyscript.js"></script>
 ```
+
+------
+
+## Connecting the Pieces
+
 - Add `<py-config>` section for **Pyodide**
 ```html
     <py-config>
@@ -212,25 +240,30 @@ pip install flask
               lang: python
     </py-config>
 ```
-  - **Important** `<py-config>` contains embedded yaml so follows yaml whitespace rules
+  - **Important:** `<py-config>` is embedded yaml so follows yaml whitespace rules
 
 ------
 
-## Connecting the Pieces (cont)
+## Connecting the Pieces
 
 - Move the code to a `.py` file
-- Need a `<py-env>` to set import path
+- Update `<py-script>` to get source from the `.py` file
+```html
+<py-script src="/static/python/hello.py"></py-script>
+```
+
+------
+
+## Connecting the Pieces
+
+- Add a `<py-env>` to `<head>` section to set import path
 ```html
     <py-env>
         - paths:
             - /static/python/hello.py
     </py-env>
 ```
-  - **Important** `py-env` contains embedded yaml so follows yaml whitespace rules
-- Update `<py-script>` to get source from the `.py` file
-```html
-<py-script src="/static/python/hello.py"></py-script>
-```
+  - **Important:** `py-env` is embedded yaml so follows yaml whitespace rules
 
 ------
 
@@ -240,18 +273,6 @@ pip install flask
      style="border: none; box-shadow: none; height: 400px;"
      alt="Server Hello World"/>
 
-------
-
-## An Important "Thank You!"
-
-- **PyScript** is an alpha product
-  - Early in my explorations was concerned about isolation
-  - Started thinking about how to make **PyScript** local
-- Then encountered a mind-expanding YouTube course
-  - [_"Python Web Apps, Running Locally with pyscript"_](https://www.youtube.com/watch?v=lC2jUeDKv-s)
-  - Developed by Michael Kennedy (host of [_Talk Python To Me Podcast_](https://talkpython.fm/home))
-  - Showed how to make **PyScript** and **Pyodide** static assets
-
 ---
 
 # A Real Application
@@ -260,26 +281,36 @@ pip install flask
 
 ## App Selection
 
-- First "real" web application is traditionally a to-do list
+- First "real" web application is traditionally a To-Do list
   - Not very interesting
   - Not very useful
   - [pyscript/examples](https://github.com/pyscript/pyscript/tree/main/examples) already has two implementations
 - Instead decided to implement a mortgage calculator
   - There are a lot of these on the web so obviously useful
-  - Needs both input and output
   - Can be implemented as a single-page web app
+  - Needs both input and output
 
 ------
 
 ## App Design
 
-- Single page
+- Page elements
   - Inputs
     - Loan Amount
     - Annual Interest Rate
     - Loan Term (months)
   - Button (Calculate Payment)
   - Output (Monthly Payment)
+
+------
+
+## Defining the page
+
+- At this point needed to learn some basic HTML and CSS
+  - Layout: `<div>` Flexbox
+  - Inputs: `<input>` with associated `<label>`
+  - Button: `<button>`
+  - Output: `<span>` with `id` attribute
 
 ------
 
@@ -291,19 +322,9 @@ pip install flask
 
 ------
 
-## Defining the page
-
-- At this point needed to learn some basic Html and Css
-  - Layout: `<div>` Flexbox
-  - Inputs: `<input>` with associated `<label>`
-  - Button: `<button>`
-  - Output: `<span>` with `id` attribute
-- PyScript still involved
-  - Button event handler (!)
-
-------
-
 ## Button event handler
+
+- Python used for the button event handler
 
 ```html
 <button id="calculate-btn">Calculate Payment</button>
@@ -314,7 +335,8 @@ pip install flask
     from mortgage import calculate_btn_click_handler
     calc_btn_element = document.getElementById('calculate-btn')
     calc_btn_element.addEventListener(
-      'click', pyodide.ffi.create_proxy(calculate_btn_click_handler))
+      'click',
+      pyodide.ffi.create_proxy(calculate_btn_click_handler))
 </py-script>
 ```
 
@@ -323,7 +345,9 @@ pip install flask
 ## `calculate_btn_click_handler`
 ```python
 def calculate_btn_click_handler(evt):
-    valid_state = (is_valid(principal_in), is_valid(rate_in), is_valid(months_in))
+    valid_state = (is_valid(principal_in),
+                   is_valid(rate_in),
+                   is_valid(months_in))
     if all(valid_state):
         P = float(principal_in.element.value)
         r = float(rate_in.element.value)
@@ -331,12 +355,12 @@ def calculate_btn_click_handler(evt):
         amount = calculate_payment(P, r, m)
         payment_amount.element.innerText = f"{amount:,.2f}"
     else:
-        payment_amount.element.innerText = "Invalid Inputs"
+        payment_amount.element.innerText = "Invalid Input"
 ```
 
 ------
 
-## What the click handler is doing
+## What the Click Handler is Doing
 
 - Gets and validates the input
 - Calculates the monthly payment
@@ -344,9 +368,9 @@ def calculate_btn_click_handler(evt):
 
 ------
 
-## Get the input from Python
+## Access the Input from Python
 
-Html
+HTML
 ```html
 <div class="input-field">
   <input type="text" id="principal" name="principal">
@@ -360,28 +384,38 @@ principal_in = Element("principal")
 ```
 Once have reference to the `Element`, can get the value
 ```python
-P = float(principal_in.element.value)
+principal_in.element.value
 ```
 
 ------
 
-## Validating the inputs
+## Needed Elements
 
-Also need to validate that input is a number
+```python
+principal_in = Element("principal")
+rate_in = Element("rate")
+months_in = Element("months")
+payment_amount = Element("payment-amount")
+```
+
+------
+
+## Validating the Inputs
+
+Want to validate that input is a number
 ```python
 valid_state = (is_valid(principal_in), is_valid(rate_in), is_valid(months_in))
 ```
 ```python
 def is_valid(input: Element):
     val = input.element.value
-    if val:
-        try:
-            n = float(val)
-            if n > 0:
-                del input.element.style # remove any style overrides
-                return True
-        except ValueError: # handle the same a falsey val
-            pass
+    try:
+        n = float(val)
+        if n > 0:
+            input.element.style = "" # remove any style overrides
+            return True
+    except ValueError:
+        pass # fall through if conversion failed
     input.element.style = "background-color:lightpink"
     return False
 ```
@@ -402,7 +436,7 @@ if all(valid_state):
 
 ## Write the output
 
-Html
+HTML
 ```html
 <b>Monthly Payment: </b><span id="payment-amount"></span>
 ```
@@ -423,12 +457,14 @@ payment_amount = Element("payment-amount")
 ```html
 <py-env>
     - paths:
-        - /static/pyscript/pyscript.py
         - /static/python/mortgage.py
+        - /static/pyscript/pyscript.py
 </py-env>
 ```
-- `mortgage.py` must be listed so that `<py-script>` section can `import mortgage`
-- `pyscript.py` must be listed so that `mortgage.py` can `import pyscript`
+- `/static/python/mortgage.py`
+  - So `<py-script>` code can `import mortgage`
+- `/static/pyscript/pyscript.py`
+  - So `mortgage.py` can `import pyscript`
 - **Reminder** - _yaml_ whitespace rules apply
 
 ------
@@ -438,6 +474,24 @@ payment_amount = Element("payment-amount")
 <img src="images/mortgage_calculator_final_result.png"
      style="border: none; box-shadow: none; height: 450px;"
      alt="Mortgage Calculator Result"/>
+
+---
+
+# The Journey
+
+------
+
+## Stops Along The Way
+
+- Local HTML page with embedded Python
+- Basic web server
+  - **Pyodide** and **PyScript** static assets
+- Basic HTML and CSS
+- Wrote application in Python
+  - Button event handler
+  - Read input from the page
+  - Write output to the page
+  - Dynamically adjust element style
 
 ---
 
