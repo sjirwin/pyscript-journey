@@ -6,7 +6,7 @@ Scott Irwin<br/>
      style="border: none; box-shadow: none; height: 100px"
      alt="Bloomberg Engineering"/><br/>
 <p>&nbsp;<p>
-https://sjirwin.github.io/pyscript-journey/
+https://sjirwin.github.io/pyscript-journey
 </center>
 
 ------
@@ -288,14 +288,192 @@ pip install flask
 
 ------
 
-## placeholder
+## App Design
+
+- Single page
+  - Inputs
+    - Loan Amount
+    - Annual Interest Rate
+    - Loan Term (months)
+  - `Calculate Payment` Button
+  - Output
+    - Monthly Payment
+
+------
+
+## Initial Page
+
+<img src="images/mortgage_calculator.png"
+     style="border: none; box-shadow: none; height: 450px;"
+     alt="Mortgage Calculator Result"/>
+
+------
+
+## Defining the page
+
+- At this point needed to learn some basic Html and Css
+  - Layout: Flexbox via `<div>`
+  - Inputs: `<input>` with associated `<label>`
+  - Button: `<button>`
+  - Output: `<span>` with `id` attribute
+- PyScript still involved
+  - Button event handler (!)
+
+------
+
+## Button event handler
+
+```html
+<button id="calculate-btn">Calculate Payment</button>
+```
+```python
+<py-script>
+    import pyodide
+    from mortgage import calculate_btn_click_handler
+    calc_btn_element = document.getElementById('calculate-btn')
+    calc_btn_element.addEventListener(
+      'click', pyodide.ffi.create_proxy(calculate_btn_click_handler))
+</py-script>
+```
+
+------
+
+## `calculate_btn_click_handler`
+```python
+def calculate_btn_click_handler(evt):
+    valid_state = (is_valid(principal_in), is_valid(rate_in), is_valid(months_in))
+    if all(valid_state):
+        P = float(principal_in.element.value)
+        r = float(rate_in.element.value)
+        m = int(months_in.element.value)
+        amount = calculate_payment(P, r, m)
+        payment_amount.element.innerText = f"{amount:,.2f}"
+    else:
+        payment_amount.element.innerText = "Invalid Inputs"
+```
+
+------
+
+## What the click handler is doing
+
+- Gets and validates the input
+- Calculates the monthly payment
+- Writes the result to output `<span>`
+
+------
+
+## Get the input from Python
+
+Html
+```html
+<div class="input-field">
+  <input type="text" id="principal" name="principal">
+  <label for="principal">Loan Amount</label>
+</div>
+```
+Python uses <span style="color:tan">`id="principal"`</span> to connect to element
+```python
+from pyscript import Element
+principal_in = Element("principal")
+```
+Once have reference to the `Element`, can get the value
+```python
+P = float(principal_in.element.value)
+```
+
+------
+
+## Validating the inputs
+
+Also need to validate that input is a number
+```python
+valid_state = (is_valid(principal_in), is_valid(rate_in), is_valid(months_in))
+```
+```python
+def is_valid(input: Element):
+    val = input.element.value
+    if val:
+        try:
+            n = float(val)
+            if n > 0:
+                del input.element.style # remove any style overrides
+                return True
+        except ValueError: # handle the same a falsey val
+            pass
+    input.element.style = "background-color:lightpink"
+    return False
+```
+
+------
+
+## Calculate the payment
+
+```python
+if all(valid_state):
+    P = float(principal_in.element.value)
+    r = float(rate_in.element.value)
+    m = int(months_in.element.value)
+    amount = calculate_payment(P, r, m)
+```
+
+------
+
+## Write the output
+
+Html
+```html
+<b>Monthly Payment: </b><span id="payment-amount"></span>
+```
+Python
+```python
+payment_amount = Element("payment-amount")
+```
+```python
+        payment_amount.element.innerText = f"{amount:,.2f}"
+    else:
+        payment_amount.element.innerText = "Invalid Inputs"
+```
+
+------
+
+## Required `py-env`
+
+```html
+<py-env>
+    - paths:
+        - /static/pyscript/pyscript.py
+        - /static/python/mortgage.py
+</py-env>
+```
+- `mortgage.py` must be listed so that `<py-script>` section can `import mortgage`
+- `pyscript.py` must be listed so that `mortgage.py` can `import pyscript`
+- **Reminder** - _yaml_ whitespace rules apply
+
+------
+
+## Final Result
+
+<img src="images/mortgage_calculator_final_result.png"
+     style="border: none; box-shadow: none; height: 450px;"
+     alt="Mortgage Calculator Result"/>
+
+---
+
+# The Journey's End
+
+- Implemented a single page web app using only
+  - Python
+  - Html
+  - Css
 
 ---
 
 ## References
 
-  - This talk: [https://sjirwin.github.io/pyscript-journey/](https://sjirwin.github.io/pyscript-journey/)
+  - This talk: [https://sjirwin.github.io/pyscript-journey](https://sjirwin.github.io/pyscript-journey)
+  - Project Repo: [https://github.com/sjirwin/pyscript-journey](https://github.com/sjirwin/pyscript-journey)
+    - `main` branch: Applications
+    - `gh-pages` branch: Slides
   - PyScript: [https://pyscript.net](https://pyscript.net)
-    - Examples: [https://pyscript.net/examples/](https://pyscript.net/examples/)
   - Pyodide: [https://pyodide.org](https://pyodide.org)
   - _"Python Web Apps, Running Locally with pyscript"_: [https://www.youtube.com/watch?v=lC2jUeDKv-s](https://www.youtube.com/watch?v=lC2jUeDKv-s)
