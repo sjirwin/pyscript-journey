@@ -35,7 +35,7 @@
             </div>
             <div class="input-field">
                 <input type="text" id="rate" name="rate">
-                <label for="rate">Interest Rate (e.g., 4.5)</label>
+                <label for="rate">Annual Interest Rate (e.g., 4.5)</label>
             </div>
             <div class="input-field">
                 <input type="text" id="months" name="months">
@@ -47,9 +47,10 @@
         </div>
         <div class="output-box">
             <div id="payment-display-div">
-                <b>Payment: </b><span id="payment-amount"></span>
+                <b>Monthly Payment: </b><span id="payment-amount"></span>
             </div>
-            <div id="amortization-schedule-div"></div>
+            <div id="amortization-schedule-div">
+            </div>
         </div>
         <py-script>
             import pyodide
