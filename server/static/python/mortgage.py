@@ -15,7 +15,8 @@ def is_valid(input: Element):
         try:
             n = float(val)
             if n > 0:
-                input.element.style = ""
+                # remove any style overrides
+                del input.element.style
                 return True
         except ValueError:
             # handle the same a falsey val
