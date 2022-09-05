@@ -4,9 +4,6 @@
     align-items: left;
     margin: 3em;
     padding-left: 1em;
-    width: 95%;
-    border-top: 2px solid lightseagreen;
-    border-bottom: 2px solid lightseagreen;
 }
 
 .input-field {
@@ -47,7 +44,4 @@
     align-items: left;
     margin: 3em;
     padding-left: 1em;
-    width: 95%;
-    border-top: 2px solid lightseagreen;
-    border-bottom: 2px solid lightseagreen;
 }
