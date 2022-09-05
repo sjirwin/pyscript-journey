@@ -101,7 +101,7 @@ https://sjirwin.github.io/pyscript-journey
  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
 </head>
 ```
-- Add `<body>`section which includes Python code in a `<pyscript>` section
+- Add `<body>`section which includes Python code in a `<py-script>` section
  ``` html
 <body>
  <py-script>print('"Hello World!" from PyScript!!!')</py-script>
@@ -140,13 +140,6 @@ https://sjirwin.github.io/pyscript-journey
 <img src="images/hello_world_repl.png"
      style="border: none; box-shadow: none; height: 400px;"
      alt="Hello World in REPL"/>
-
----
-
-## The Journey So Far
-
-- Static `html` files opened directly in browser
-- Used basic **PyScript** tags
 
 ---
 
@@ -219,7 +212,7 @@ pip install flask
               lang: python
     </py-config>
 ```
-  - **Important** `py-config` contains embedded yaml so follows yaml whitespace rules
+  - **Important** `<py-config>` contains embedded yaml so follows yaml whitespace rules
 
 ------
 
@@ -261,21 +254,11 @@ pip install flask
 
 ---
 
-## The Journey So Far
-
-- Web server running on `localhost`
-  - Serving `html` files
-  - Serving `python` scripts that run in the browser
-- Used multiple **PyScript** tags
-- **PyScript** and **Pyodide** as static assets
-
----
-
 # A Real Application
 
 ------
 
-## Mortgage Calculator
+## App Selection
 
 - First "real" web application is traditionally a to-do list
   - Not very interesting
@@ -295,13 +278,12 @@ pip install flask
     - Loan Amount
     - Annual Interest Rate
     - Loan Term (months)
-  - `Calculate Payment` Button
-  - Output
-    - Monthly Payment
+  - Button (Calculate Payment)
+  - Output (Monthly Payment)
 
 ------
 
-## Initial Page
+## Mortgage Calculator
 
 <img src="images/mortgage_calculator.png"
      style="border: none; box-shadow: none; height: 450px;"
@@ -312,7 +294,7 @@ pip install flask
 ## Defining the page
 
 - At this point needed to learn some basic Html and Css
-  - Layout: Flexbox via `<div>`
+  - Layout: `<div>` Flexbox
   - Inputs: `<input>` with associated `<label>`
   - Button: `<button>`
   - Output: `<span>` with `id` attribute
@@ -456,15 +438,6 @@ payment_amount = Element("payment-amount")
 <img src="images/mortgage_calculator_final_result.png"
      style="border: none; box-shadow: none; height: 450px;"
      alt="Mortgage Calculator Result"/>
-
----
-
-# The Journey's End
-
-- Implemented a single page web app using only
-  - Python
-  - Html
-  - Css
 
 ---
 
