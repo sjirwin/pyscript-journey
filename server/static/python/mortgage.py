@@ -11,16 +11,15 @@ def calculate_payment(principal: float, interest_rate: float, months: int):
 
 def is_valid(input: Element):
     val = input.element.value
-    if val:
-        try:
-            n = float(val)
-            if n > 0:
-                # remove any style overrides
-                input.element.style = ""
-                return True
-        except ValueError:
-            # handle the same a falsey val
-            pass
+    try:
+        n = float(val)
+        if n > 0:
+            # remove any style overrides
+            input.element.style = ""
+            return True
+    except ValueError:
+        # fall through if conversion failed
+        pass
     input.element.style = "background-color:lightpink"
     return False
 
@@ -33,4 +32,4 @@ def calculate_btn_click_handler(evt):
         amount = calculate_payment(P, r, m)
         payment_amount.element.innerText = f"{amount:,.2f}"
     else:
-        payment_amount.element.innerText = "Invalid Inputs"
+        payment_amount.element.innerText = "Invalid Input"

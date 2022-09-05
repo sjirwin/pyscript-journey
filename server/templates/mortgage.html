@@ -19,8 +19,8 @@
     </py-config>
     <py-env>
         - paths:
-            - /static/pyscript/pyscript.py
             - /static/python/mortgage.py
+            - /static/pyscript/pyscript.py
     </py-env>
     <link rel="stylesheet" href="/static/css/mortgage.css"/>
   </head>
@@ -46,10 +46,8 @@
             </div>
         </div>
         <div class="output-box">
-            <div id="payment-display-div">
-                <b>Monthly Payment: </b><span id="payment-amount"></span>
-            </div>
-            <div id="amortization-schedule-div">
+            <div class="payment-display-div">
+                <b>Monthly Payment:</b> <span id="payment-amount"></span>
             </div>
         </div>
         <py-script>
