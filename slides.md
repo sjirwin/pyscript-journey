@@ -67,8 +67,8 @@ https://sjirwin.github.io/pyscript-journey
   - Uses [micropip](https://pyodide.org/en/stable/usage/api/micropip-api.html)
 - Supports pure Python packages with a wheel available on PyPI
 - Many packages with C extensions have also been ported
-  - General: regex, PyYAML, lxml
-  - Scientific: NumPy, pandas, SciPy, Matplotlib, scikit-learn
+  - General: regex, pyyaml, lxml
+  - Scientific: numpy, pandas, scipy, matplotlib, scikit-learn
 - Check [pyodide/packages](https://github.com/pyodide/pyodide/tree/main/packages) for the full list
 
 ------
