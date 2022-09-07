@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-1 50 399 277" width="399" height="277">
+<svg version="1.1" xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="-1 50 399 277" width="399" height="277">
   <defs/>
-  <g id="Canvas_1" stroke-dasharray="none" stroke-opacity="1" fill="none" stroke="none" fill-opacity="1">
+  <g id="Canvas_1" stroke-dasharray="none" fill-opacity="1" stroke-opacity="1" stroke="none" fill="none">
     <title>Canvas 1</title>
+    <rect fill="white" x="-1" y="50" width="399" height="277"/>
     <g id="Canvas_1_Layer_1">
       <title>Layer 1</title>
       <g id="Graphic_2">
@@ -85,7 +86,7 @@
         <path d="M 9 73.70079 L 169.58268 73.70079 C 174.55324 73.70079 178.58268 77.730225 178.58268 82.70079 L 178.58268 107.22047 C 178.58268 112.19104 174.55324 116.22047 169.58268 116.22047 L 9 116.22047 C 4.0294373 116.22047 6087184e-22 112.19104 0 107.22047 L 17763568e-22 82.70079 C 23850752e-22 77.730225 4.0294373 73.70079 9 73.70079 Z" fill="#73fdd6"/>
         <path d="M 9 73.70079 L 169.58268 73.70079 C 174.55324 73.70079 178.58268 77.730225 178.58268 82.70079 L 178.58268 107.22047 C 178.58268 112.19104 174.55324 116.22047 169.58268 116.22047 L 9 116.22047 C 4.0294373 116.22047 6087184e-22 112.19104 0 107.22047 L 17763568e-22 82.70079 C 23850752e-22 77.730225 4.0294373 73.70079 9 73.70079 Z" stroke="#009193" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"/>
         <text transform="translate(5 83.18063)" fill="black">
-          <tspan font-family="Helvetica Neue" font-size="20" fill="black" x="6.141336" y="19">Javascript Bridge</tspan>
+          <tspan font-family="Helvetica Neue" font-size="20" fill="black" x="4.661336" y="19">JavaScript Bridge</tspan>
         </text>
       </g>
       <g id="Graphic_19">
