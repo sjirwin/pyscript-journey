@@ -28,7 +28,7 @@ https://sjirwin.github.io/pyscript-journey
 
 ## PyScript
 
-- Announced at PyCon US 2022 ([video](https://www.youtube.com/watch?v=qKfkCY7cmBQ))
+- Announced at PyCon US 2022 by Peter Wang ([video](https://www.youtube.com/watch?v=qKfkCY7cmBQ))
 - Project home page at [https://pyscript.net/](https://pyscript.net/)
  - Enables using Python code in client-side web apps
      - Python directly in the HTML
@@ -67,15 +67,15 @@ https://sjirwin.github.io/pyscript-journey
   - Uses [micropip](https://pyodide.org/en/stable/usage/api/micropip-api.html)
 - Supports pure Python packages with a wheel available on PyPI
 - Many packages with C extensions have also been ported
-  - General: regex, pyyaml, lxml
-  - Scientific: numpy, pandas, scipy, matplotlib, scikit-learn
+  - General: regex, PyYAML, lxml
+  - Scientific: NumPy, pandas, SciPy, Matplotlib, scikit-learn
 - Check [pyodide/packages](https://github.com/pyodide/pyodide/tree/main/packages) for the full list
 
 ------
 
 ## Some PyScript Features
 
-- Bi-directional communication between Python and Javascript objects and namespaces
+- Bi-directional communication between Python and JavaScript objects and namespaces
 - Curated set of ready to use UI components, such as buttons, containers, text boxes
 - Because it uses Pyodide, you can use many popular Python packages
 
